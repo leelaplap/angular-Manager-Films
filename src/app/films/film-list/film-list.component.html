@@ -1,0 +1,57 @@
+<div class="card">
+  <h5 class="card-header">
+    <div class="row">
+      <div class="col-6">
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+                 (keyup)="filter($event)">
+        </form>
+      </div>
+      <div class="col-6">
+        <div class="row">
+          <div class="col-3">
+            <button class="btn btn-outline-success" (click)="showImage()">Hide/Show</button>
+          </div>
+          <div class="col-3">
+            <button type="button" class="btn btn-success" routerLink="/film-create">Create</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </h5>
+  {{showMess}}
+  <div class="card-body">
+    <table class="table table-dark">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name film</th>
+        <th scope="col">Category</th>
+        <ng-container *ngIf="showImg">
+          <th scope="col">Image</th>
+        </ng-container>
+        <th scope="col">Rating</th>
+        <th scope="col">Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let film of listFilms,let i = index">
+        <th scope="row">{{i + 1}}</th>
+        <td>{{film.name}}</td>
+        <td>{{film.category}}</td>
+        <ng-container *ngIf="showImg">
+          <td>
+            <img src="{{film.image}}" alt="" width="150">
+          </td>
+        </ng-container>
+        <td>
+          <app-stars [star]="film.star" (message)="showMessage($event)"></app-stars>
+        </td>
+        <td>
+          <button class="btn btn-danger" (click)="delete(i)">Delete</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
