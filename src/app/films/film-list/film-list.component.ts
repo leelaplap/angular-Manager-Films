@@ -8,21 +8,16 @@ import {FilmService} from '../../services/film.service';
   styleUrls: ['./film-list.component.scss']
 })
 export class FilmListComponent implements OnInit {
-  films = this.filmServices.getAll();
+  films = this.fs.getAll();
   showImg = true;
   listFilms: IFilm[] = [];
   showMess: string;
 
-
-  constructor(private filmServices: FilmService) {
+  constructor(private fs: FilmService) {
   }
 
   ngOnInit() {
     this.listFilms = this.films;
-  }
-
-  showImage() {
-    this.showImg = !this.showImg;
   }
 
   filter(event) {
@@ -34,6 +29,11 @@ export class FilmListComponent implements OnInit {
     return this.films.filter(
       film => film.name.toLowerCase().indexOf(data) !== -1
     );
+  }
+
+
+  showImage() {
+    this.showImg = !this.showImg;
   }
 
   delete(id) {

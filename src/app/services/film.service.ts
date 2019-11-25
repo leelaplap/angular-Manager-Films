@@ -32,4 +32,8 @@ export class FilmService {
   getAll() {
     return this.listFilm;
   }
+
+  add(film) {
+    this.listFilm.push(film);
+  }
 }
