@@ -41,7 +41,7 @@ export class FilmService {
     return this.listFilm[id];
   }
 
-  update(film: IFilm, id: number) {
+  update(film, id) {
     this.listFilm[id] = film;
   }
 }
