@@ -9,6 +9,7 @@ import { FilmCreateComponent } from './films/film-create/film-create.component';
 import { StarsComponent } from './stars/stars.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
+import { FilmEditComponent } from './films/film-edit/film-edit.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {RouterModule} from '@angular/router';
     FilmListComponent,
     MenuComponent,
     FilmCreateComponent,
-    StarsComponent
+    StarsComponent,
+    FilmEditComponent
   ],
   imports: [
     BrowserModule,

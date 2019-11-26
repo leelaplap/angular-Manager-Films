@@ -33,7 +33,15 @@ export class FilmService {
     return this.listFilm;
   }
 
-  add(film) {
+  add(film: IFilm): void {
     this.listFilm.push(film);
+  }
+
+  getFilmById(id: number) {
+    return this.listFilm[id];
+  }
+
+  update(film: IFilm, id: number) {
+    this.listFilm[id] = film;
   }
 }
